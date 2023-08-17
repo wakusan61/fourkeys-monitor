@@ -20,6 +20,6 @@ jobs:
     - name: Bulk insert deploy pull request.
       run: ./deploy_frequency.sh
       env:
-        GOOGLE_TOKEN: ${{ vers.GOOGLE_TOKEN }}
-        SPREAD_SHEET_URL: ${{ vers.SPREAD_SHEET_URL }}
+        GOOGLE_TOKEN: ${{ secrets.GOOGLE_TOKEN }}
+        SPREAD_SHEET_URL: ${{ secrets.SPREAD_SHEET_URL }}
       shell: bash
