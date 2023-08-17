@@ -1,0 +1,25 @@
+name: bulk_insert_deploy_commit
+description: デプロイ頻度計測のためのコミット情報をSpread Sheet に登録します。
+on:
+  workflow_dispatch:
+push:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - main
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  runs-on: ubuntu-latest
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Bulk insert deploy pull request.
+      run: ./deploy_frequency.sh
+      env:
+        GOOGLE_TOKEN: ${{ vers.GOOGLE_TOKEN }}
+        SPREAD_SHEET_URL: ${{ vers.SPREAD_SHEET_URL }}
+      shell: bash
