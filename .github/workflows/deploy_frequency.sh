@@ -3,7 +3,7 @@ set -e
 
 token=$GOOGLE_TOKEN
 url=$SPREAD_SHEET_URL
-git checkout main
+git pull
 # Get the date and author of all merge commits on the main branch
 commit_info=$(git log --merges --first-parent --pretty=format:'%aI "%an" %H' $1 main)
 # Save the data to Google SpreadSheet
