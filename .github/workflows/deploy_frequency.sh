@@ -2,7 +2,7 @@
 set -e
 
 since=""
-if [ "yesterday" = $1 ]; then
+if [ $1 = "yesterday" ]; then
   since="--since=yesterday"
 fi
 token=$GOOGLE_TOKEN
