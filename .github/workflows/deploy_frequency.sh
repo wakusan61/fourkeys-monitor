@@ -1,9 +1,7 @@
 #!/bin/bash
 set -e
-git checkout main
-git pull
 since=""
-if [ $1 = "yesterday" ]; then
+if [ "yesterday" = "$1" ]; then
   since="--since=yesterday"
 fi
 token=$GOOGLE_TOKEN
