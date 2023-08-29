@@ -6,6 +6,8 @@ since=""
 if [ "yesterday" = "$1" ]; then
   since="--since=yesterday"
 fi
+# Debug
+echo "::warning::since $since"
 token=$GOOGLE_TOKEN
 url=$SPREAD_SHEET_URL
 # Get the date and author of all merge commits on the main branch
