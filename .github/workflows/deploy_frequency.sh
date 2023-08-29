@@ -3,7 +3,7 @@ set -e
 
 token=$GOOGLE_TOKEN
 url=$SPREAD_SHEET_URL
-if [ "" == url] ; then
+if [ "" == url]; then
   echo "URLが設定されていません。SPREAD_SHEET_URLをSecretsに設定してください。"
   exit 3
 fi 
