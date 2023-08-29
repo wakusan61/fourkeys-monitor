@@ -13,6 +13,8 @@ echo "$commit_info" | while read line; do
   echo $commit_date $commit_author $commit_hash
   # GitHub Actions は対象外のため除外
   if [ "GitHub Action" != "$commit_author" ]; then
+    # Debug
+    echo "::warning::Execute Action $commit_date $commit_author $commit_hash"
     response=$(curl -s -w "\n%{http_code}\n" -X POST -H "Content-Type: application/json" -H "Authorization: Bearer $token" -d "{\"date\":\"$commit_date\",\"author\":\"$commit_author\", \"hash\":\"$commit_hash\"}" -L $url)
     if [ $(echo "$response" | tail -n 1) -ne 200 ]; then
       echo "エラー：POSTリクエストの送信に失敗しました。レスポンスボディ：$response" >&2; exit 1;
