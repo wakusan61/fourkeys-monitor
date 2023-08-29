@@ -1,5 +1,7 @@
 #!/bin/bash
 set -e
+git checkout main
+git pull
 since=""
 if [ "yesterday" = "$1" ]; then
   since="--since=yesterday"
