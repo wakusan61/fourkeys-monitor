@@ -1,11 +1,6 @@
-name: bulk_insert_deploy_commit
+name: record-deploy-frequency-all
 on:
   workflow_dispatch:
-  pull_request:
-      types:
-        - closed
-      branches:
-        - main
 
 jobs:
   deploy-frequency:
@@ -14,11 +9,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
       - name: Bulk insert deploy pull request.
         run: ./.github/workflows/deploy_frequency.sh
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GOOGLE_TOKEN: ${{ secrets.GOOGLE_TOKEN }}
           SPREAD_SHEET_URL: ${{ secrets.SPREAD_SHEET_URL }}
         shell: bash
