@@ -8,7 +8,7 @@ on:
         - main
 
 jobs:
-  develpment:
+  development:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
