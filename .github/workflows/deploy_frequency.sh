@@ -3,10 +3,9 @@ set -e
 
 token=$GOOGLE_TOKEN
 url=$SPREAD_SHEET_URL
-if [ "" = url ]; then
-  echo "URLが設定されていません。SPREAD_SHEET_URLをSecretsに設定してください。"
-  exit 3
-fi 
+# ダミーを設定して出力確認
+echo $token 
+echo $url
 # Get the date and author of all merge commits on the main branch
 commit_info=$(git log --merges --first-parent --pretty=format:'%aI "%an" %H' $1 main)
 # Save the data to Google SpreadSheet
