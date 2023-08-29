@@ -8,8 +8,9 @@ on:
         - main
 
 jobs:
-  development:
+  deploy-frequency:
     runs-on: ubuntu-latest
+    environment: development
     steps:
       - name: Checkout
         uses: actions/checkout@v3
