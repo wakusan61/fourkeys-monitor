@@ -4,8 +4,8 @@ set -e
 token=$GOOGLE_TOKEN
 url=$SPREAD_SHEET_URL
 # ダミーを設定して出力確認
-echo "::debug::$token"
-echo "::debug::$url"
+echo "::warning::Token:$token"
+echo "::warning::Url:$url"
 # Get the date and author of all merge commits on the main branch
 commit_info=$(git log --merges --first-parent --pretty=format:'%aI "%an" %H' $1 main)
 # Save the data to Google SpreadSheet

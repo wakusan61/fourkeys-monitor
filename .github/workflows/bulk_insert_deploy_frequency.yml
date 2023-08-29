@@ -8,7 +8,7 @@ on:
         - main
 
 jobs:
-  deploy-frequency:
+  develpment:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
